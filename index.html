@@ -1,1 +1,84 @@
-<html><body><h1>It works GO!</h1></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Encuesta UNCuyo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 20px;
+    }
+    img.logo {
+      width: 100px;
+    }
+    form {
+      margin-top: 20px;
+      display: inline-block;
+      text-align: left;
+    }
+    .equipo {
+      display: flex;
+      align-items: center;
+      margin: 8px 0;
+    }
+    .equipo img {
+      width: 30px;
+      margin-left: 8px;
+    }
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    .submit-btn:hover {
+      background-color: #45a049;
+    }
+    label {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://www.uncuyo.edu.ar/relaciones_institucionales/cache/logo-uncuyo1_315_600_c.jpg" class="logo" alt="Logo UNCuyo">
+  <h2>UNCUYO<br>Universidad Nacional de Cuyo</h2>
+  <h3>Elija su equipo favorito</h3>
+
+  <form>
+    <label>Ingrese su e-mail:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <div class="equipo">
+      <label><input type="radio" name="equipo" value="Boca Juniors"> Boca Juniors</label>
+      <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/Boca_Juniors_logo18.png" alt="Boca">
+    </div>
+    <div class="equipo">
+      <label><input type="radio" name="equipo" value="River Plate"> River Plate</label>
+      <img src="https://upload.wikimedia.org/wikipedia/en/3/32/Club_Atl%C3%A9tico_River_Plate_logo.svg" alt="River">
+    </div>
+    <div class="equipo">
+      <label><input type="radio" name="equipo" value="San Lorenzo"> San Lorenzo</label>
+      <img src="https://upload.wikimedia.org/wikipedia/en/5/56/San_Lorenzo_logo.svg" alt="San Lorenzo">
+    </div>
+    <div class="equipo">
+      <label><input type="radio" name="equipo" value="Racing"> Racing</label>
+      <img src="https://upload.wikimedia.org/wikipedia/en/6/6b/Racing_Club_Logo.svg" alt="Racing">
+    </div>
+    <div class="equipo">
+      <label><input type="radio" name="equipo" value="Independiente"> Independiente</label>
+      <img src="https://upload.wikimedia.org/wikipedia/en/c/c1/CA_Independiente_Logo.svg" alt="Independiente">
+    </div>
+    <div class="equipo">
+      <label><input type="radio" name="equipo" value="Otro"> Otro</label>
+    </div>
+
+    <button type="submit" class="submit-btn">Enviar</button>
+  </form>
+</body>
+</html>
