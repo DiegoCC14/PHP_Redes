@@ -25,6 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         : [];
 
     $file = fopen($archivo_log, "a");
+    
+    echo "<h2>⚠️ El correo <b>$votantes</b> ya ha votado.</h2>";
 
     if (in_array($email, $votantes)) {
         echo "<h2>⚠️ El correo <b>$email</b> ya ha votado.</h2>";
