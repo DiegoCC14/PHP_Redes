@@ -44,35 +44,40 @@
       flex: 1;
     }
   </style>
+  
+  <script src="functions.js"></script>
+
 </head>
 <body>
   <img src="https://www.uncuyo.edu.ar/relaciones_institucionales/cache/logo-uncuyo1_315_600_c.jpg" class="logo" alt="Logo UNCuyo">
   <h2>UNCUYO<br>Universidad Nacional de Cuyo</h2>
   <h3>Elija su equipo favorito</h3>
 
-  <form>
+  <!-- <form name="formulario1" id="formulario1_id" action="verificar.php" method="POST" onsubmit="return validar();"> -->
+  <form name="formulario1" id="formulario1_id" action="verificar.php" method="POST" onsubmit="return validar();">
     <label>Ingrese su e-mail:</label><br>
-    <input type="email" name="email" required><br><br>
+
+    <input type="text" id="email" name="email" placeholder="Email"><br><br>
 
     <div class="equipo">
       <label><input type="radio" name="equipo" value="Boca Juniors"> Boca Juniors</label>
-      <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/Boca_Juniors_logo18.png" alt="Boca">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/CABJ70.png/960px-CABJ70.png" alt="Boca">
     </div>
     <div class="equipo">
       <label><input type="radio" name="equipo" value="River Plate"> River Plate</label>
-      <img src="https://upload.wikimedia.org/wikipedia/en/3/32/Club_Atl%C3%A9tico_River_Plate_logo.svg" alt="River">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Escudo_del_C_A_River_Plate.svg/800px-Escudo_del_C_A_River_Plate.svg.png" alt="River">
     </div>
     <div class="equipo">
       <label><input type="radio" name="equipo" value="San Lorenzo"> San Lorenzo</label>
-      <img src="https://upload.wikimedia.org/wikipedia/en/5/56/San_Lorenzo_logo.svg" alt="San Lorenzo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Escudo_del_Club_Atl%C3%A9tico_San_Lorenzo_de_Almagro.svg/250px-Escudo_del_Club_Atl%C3%A9tico_San_Lorenzo_de_Almagro.svg.png" alt="San Lorenzo">
     </div>
     <div class="equipo">
       <label><input type="radio" name="equipo" value="Racing"> Racing</label>
-      <img src="https://upload.wikimedia.org/wikipedia/en/6/6b/Racing_Club_Logo.svg" alt="Racing">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Escudo_de_Racing_Club_%282014%29.svg/800px-Escudo_de_Racing_Club_%282014%29.svg.png" alt="Racing">
     </div>
     <div class="equipo">
       <label><input type="radio" name="equipo" value="Independiente"> Independiente</label>
-      <img src="https://upload.wikimedia.org/wikipedia/en/c/c1/CA_Independiente_Logo.svg" alt="Independiente">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Escudo_del_Club_Atl%C3%A9tico_Independiente.svg/250px-Escudo_del_Club_Atl%C3%A9tico_Independiente.svg.png" alt="Independiente">
     </div>
     <div class="equipo">
       <label><input type="radio" name="equipo" value="Otro"> Otro</label>
@@ -80,5 +85,6 @@
 
     <button type="submit" class="submit-btn">Enviar</button>
   </form>
+
 </body>
 </html>
