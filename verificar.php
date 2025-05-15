@@ -1,24 +1,29 @@
 <?php
-// Verificamos si el usuario ya votó con una cookie
-if (isset($_COOKIE['voto_realizado'])) {
-    echo "<h2>✅ Ya ha realizado su voto.</h2>";
-    exit;
-}
+$email = trim($_POST['email'] ?? '');
+$equipo = trim($_POST['equipo'] ?? '');
 
-// Verificamos que se haya enviado por POST
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = htmlspecialchars($_POST["email"]);
-    $equipo = htmlspecialchars($_POST["equipo"]);
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (empty($email) || empty($equipo)) {
+        echo "<h2>❌ Debe completar todos los campos.</h2>";
+        exit;
+    }
+    
+    $archivoVotantes = 'votantes.txt';
 
-    // Podés guardar los datos en un archivo de texto si querés hacer un registro simple
-    $registro = fopen("resultados.txt", "a");
-    fwrite($registro, "Email: $email - Equipo: $equipo\n");
-    fclose($registro);
+    // Verificamos si ya votó
+    if (file_exists($archivoVotantes)) {
+        $votantes = file($archivoVotantes, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        if (in_array($email, $votantes)) {
+            echo "<h2>⚠️ El e-mail <b>$email</b> ya ha votado.</h2>";
+            exit;
+        }
+    }
 
-    // Creamos una cookie para evitar múltiples votos (por navegador)
-    setcookie("voto_realizado", "1", time() + (60 * 60 * 24)); // 1 día
+    // Guarda el voto
+    file_put_contents('resultados.txt', "Email: $email - Equipo: $equipo\n", FILE_APPEND);
+    file_put_contents($archivoVotantes, "$email\n", FILE_APPEND);
 
-    echo "<h2>✅ Gracias por votar, $email. Usted eligió: $equipo</h2>";
+    echo "<h2>✅ Gracias por votar, <b>$email</b>. Usted eligió: <b>$equipo</b></h2>";
 } else {
     echo "<h2>❌ Acceso inválido</h2>";
 }
