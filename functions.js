@@ -89,33 +89,33 @@ function actualizar_votacion() {
 
       }
       
-      const span = document.getElementById("Boca Juniors_span");
+      let span = document.getElementById("Boca Juniors_span");
       if (span) {
         span.innerHTML = '<span id="Boca Juniors_span">${contador_Boca_Junior}</span>' 
       }
 
-      const span = document.getElementById("River Plate_span");
+      span = document.getElementById("River Plate_span");
       if (span) {
         span.innerHTML = '<span id="River Plate_span">${contador_River_Plate}</span>' 
       }
 
-      const span = document.getElementById("San Lorenzo_span");
+      span = document.getElementById("San Lorenzo_span");
       if (span) {
         span.innerHTML = '<span id="San Lorenzo_span">${contador_San_Lorenzo}</span>' 
       }
 
-      const span = document.getElementById("Racing_span");
+      span = document.getElementById("Racing_span");
       if (span) {
         span.innerHTML = '<span id="Racing_span">${contador_Racing}</span>' 
       }
 
-      const span = document.getElementById("Independiente_span");
+      span = document.getElementById("Independiente_span");
       if (span) {
 
         span.innerHTML = '<span id="Independiente_span">${contador_Independiente}</span>' 
       }
 
-      const span = document.getElementById("Otro_span");
+      span = document.getElementById("Otro_span");
       if (span) {
         span.innerHTML = '<span id="Otro_span">${contador_Otro}</span>' 
       }
