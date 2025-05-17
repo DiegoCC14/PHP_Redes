@@ -69,7 +69,7 @@ function actualizar_votacion() {
       
       const label = document.getElementById("Otro-label");
 
-      console.log("Antes 111");
+      console.log( "Antes 111" , label );
       if (label) {
         console.log("Entro 222");
         label.textContent += contador;
