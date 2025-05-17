@@ -60,19 +60,66 @@ function actualizar_votacion() {
     })
     .then(data => {
 
-      let contador = 0;
+      let contador_Boca_Junior = 0;
+      let contador_River_Plate = 0;
+      let contador_San_Lorenzo = 0;
+      let contador_Racing = 0;
+      let contador_Independiente = 0;
+      let contador_Otro = 0;
+
       for (const correo in data) {
-        if (data[correo] === "Otro") {
-          contador++;
+        if (data[correo] === "Boca Juniors") {
+          contador_Boca_Junior++;
         }
+        if (data[correo] === "River Plate") {
+          contador_River_Plate++;
+        }
+        if (data[correo] === "San Lorenzo") {
+          contador_San_Lorenzo++;
+        }
+        if (data[correo] === "Racing") {
+          contador_Racing++;
+        }
+        if (data[correo] === "Independiente") {
+          contador_Independiente++;
+        }
+        if (data[correo] === "Otro") {
+          contador_Otro++;
+        }
+
       }
       
-      const span = document.getElementById("Otro_span");
+      const span = document.getElementById("Boca Juniors_span");
       if (span) {
-        span.textContent += contador;
+        span.innerHTML = '<span id="Boca Juniors_span">${contador_Boca_Junior}</span>' 
       }
 
-      console.log("✅ Datos recibidos desde el servidor:", data);
+      const span = document.getElementById("River Plate_span");
+      if (span) {
+        span.innerHTML = '<span id="River Plate_span">${contador_River_Plate}</span>' 
+      }
+
+      const span = document.getElementById("San Lorenzo_span");
+      if (span) {
+        span.innerHTML = '<span id="San Lorenzo_span">${contador_San_Lorenzo}</span>' 
+      }
+
+      const span = document.getElementById("Racing_span");
+      if (span) {
+        span.innerHTML = '<span id="Racing_span">${contador_Racing}</span>' 
+      }
+
+      const span = document.getElementById("Independiente_span");
+      if (span) {
+
+        span.innerHTML = '<span id="Independiente_span">${contador_Independiente}</span>' 
+      }
+
+      const span = document.getElementById("Otro_span");
+      if (span) {
+        span.innerHTML = '<span id="Otro_span">${contador_Otro}</span>' 
+      }
+
     })
     .catch(error => {
       console.error("Error al obtener el JSON:", error);
