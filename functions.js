@@ -50,3 +50,22 @@ function validar() {
 
   return true;
 }
+
+
+function actualizar_votacion() {
+  fetch('/correo_votos.json')
+    .then(response => {
+      if (!response.ok) throw new Error("No se pudo cargar el JSON");
+      return response.json();
+    })
+    .then(data => {
+      console.log("✅ Datos recibidos desde el servidor:", data);
+    })
+    .catch(error => {
+      console.error("Error al obtener el JSON:", error);
+    });
+}
+
+
+console.log("Inicio Proceso --->>>")
+actualizar_votacion();
