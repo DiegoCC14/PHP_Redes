@@ -59,6 +59,19 @@ function actualizar_votacion() {
       return response.json();
     })
     .then(data => {
+
+      let contador = 0;
+      for (const correo in data) {
+        if (data[correo] === "Otro") {
+          contador++;
+        }
+      }
+      
+      const label = document.getElementById("Otro-label");
+      if (label) {
+        label.textContent += contador;
+      }
+
       console.log("✅ Datos recibidos desde el servidor:", data);
     })
     .catch(error => {
