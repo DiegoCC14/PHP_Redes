@@ -68,8 +68,12 @@ function actualizar_votacion() {
       }
       
       const label = document.getElementById("Otro-label");
+
+      console.log("Antes 111");
       if (label) {
+        console.log("Entro 222");
         label.textContent += contador;
+        console.log("Baluvi");
       }
 
       console.log("✅ Datos recibidos desde el servidor:", data);
