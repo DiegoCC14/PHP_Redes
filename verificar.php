@@ -1,35 +1,28 @@
 <?php
-$email = trim($_POST['email'] ?? '');
+    
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        
+        # Datps Formulario --------------------->>>>>
+        $email = trim($_POST['email'] ?? '');
+        $voto = trim($_POST['equipo'] ?? '');
+        # -------------------------------------->>>>>
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if ($email === '') {
-        echo "❌ Debe ingresar un correo.";
-        exit;
-    }
+        $archivo = 'correo_votos.json';
 
-    $archivo = 'correos_usados.txt';
+        // Leemos el archivo de votos.json
+        $correos = json_decode( file_get_contents($archivo), true);
 
-    // Si el archivo no existe, lo crea
-    if (!file_exists($archivo)) {
-        $nuevo = fopen($archivo, "w");
-        fclose($nuevo);
-    }
+        // Verificar si ya votó
+        if (array_key_exists( $email, $correos )) {
+            echo "El Correo $email ya votó";
+        } else {
+            // Guardar nuevo voto
+            $correos[$email] = $voto;
+            file_put_contents( $archivo, json_encode($correos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+            echo "Voto registrado: $email => $voto";
+        }
 
-    // Leer contenido actual
-    $contenido = file($archivo, FILE_IGNORE_NEW_LINES);
-
-    // Verificar si el correo ya existe
-    if (in_array($email, $contenido)) {
-        echo "⚠️ El correo $email ya votó.";
     } else {
-        // Guardar el nuevo correo
-        $file = fopen($archivo, "a");
-        fwrite($file, $email . "\n");
-        fclose($file);
-
-        echo "✅ Voto registrado para $email.";
+        echo "Acceso no permitido.";
     }
-} else {
-    echo "❌ Acceso no permitido.";
-}
 ?>
