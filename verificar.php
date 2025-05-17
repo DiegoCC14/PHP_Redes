@@ -19,7 +19,7 @@
             // Guardar nuevo voto
             $correos[$email] = $voto;
             file_put_contents( $archivo, json_encode($correos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-            echo "Voto registrado: $email => $voto";
+            echo "Voto registrado: $email => $voto => $correos";
         }
 
     } else {
